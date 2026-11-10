@@ -9,9 +9,8 @@
 // =====================================================
 // WIFI SETTINGS
 // =====================================================
-const char* ssid = "Abc";
-const char* password = "11111111";
-
+const char* ssid = "YOUR_WIFI_SSID";
+const char* password = "YOUR_WIFI_PASSWORD";
 // India Standard Time (UTC + 5:30)
 const long GMT_OFFSET_SEC = 19800;
 const int DAYLIGHT_OFFSET_SEC = 0;
