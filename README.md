@@ -39,3 +39,48 @@ smart-medicine-box/
 ├── Smart_Medicine_Box_2_Separate_Compartment/
 │   └── Smart_Medicine_Box_2_Separate_Compartment.ino
 └── README.md
+```
+## ⚙️ Installation & Setup
+
+### 1. Arduino IDE Prerequisites
+
+- Install the **ESP32 Board Package** via Arduino Boards Manager (`esp32` by Espressif Systems).
+- Install the following libraries via the Arduino Library Manager (**Sketch > Include Library > Manage Libraries...**):
+  - `Adafruit GFX Library`
+  - `Adafruit SSD1306`
+  - `RTClib` (by Adafruit)
+  - `ESP32Servo` (by Kevin Harrington)
+
+### 2. Configuration
+
+Before uploading, configure your local network credentials in the sketch:
+
+```cpp
+const char* ssid = "YOUR_WIFI_SSID";
+const char* password = "YOUR_WIFI_PASSWORD";
+```
+### 3. Uploading Code
+
+1. Connect the ESP32 board to your PC via USB.
+2. Select your board under **Tools > Board > ESP32 Arduino** (e.g., *ESP32 Dev Module*).
+3. Select the active COM port under **Tools > Port**.
+4. Click **Upload**.
+
+---
+
+## 🌐 Web Dashboard & Endpoints
+
+Once connected, open the Serial Monitor at **115200 baud** to view the assigned local IP address (e.g., `http://192.168.1.50`).
+
+### Dashboard Interface
+
+Navigate to the board's IP address in any browser on the same network to access:
+
+- **Live Clock & Status:** View real-time RTC clock and dispensing status.
+- **Alarm Scheduling:** Set hours, minutes, and toggle enable/disable for Compartments 1 and 2.
+- **Hardware Diagnostics:**
+  - `Cycle Servos` -> Triggers `/servo/test`
+  - `Beep Buzzer` -> Triggers `/buzzer/test`
+  - `Test LEDs` -> Triggers `/led/test`
+  - `OLED On / Off` -> Triggers `/display/on` or `/display/off`
+- **Dismiss Alert:** Silences buzzer, turns off indicator LEDs, and closes the active compartment servo.
